@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 11%;
+
+    --primary: 211 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 0 0% 20%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 240 5% 96%;
+    --accent-foreground: 0 0% 14%;
+
+    --destructive: 4 74% 49%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 36 100% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 0 0% 91%;
+    --input: 0 0% 91%;
+    --ring: 211 100% 50%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 240 5% 97%;
+    --sidebar-foreground: 0 0% 11%;
+    --sidebar-primary: 211 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 94%;
+    --sidebar-accent-foreground: 0 0% 14%;
+    --sidebar-border: 0 0% 93%;
+    --sidebar-ring: 211 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer utilities {
+  /* macOS-style frosted glass */
+  .glass {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+  }
+
+  .glass-subtle {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: saturate(150%) blur(12px);
+    -webkit-backdrop-filter: saturate(150%) blur(12px);
+  }
+
+  /* Apple system shadows */
+  .apple-shadow {
+    box-shadow:
+      0 0 0 0.5px rgba(0, 0, 0, 0.03),
+      0 1px 2px rgba(0, 0, 0, 0.04),
+      0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  .apple-shadow-lg {
+    box-shadow:
+      0 0 0 0.5px rgba(0, 0, 0, 0.03),
+      0 2px 8px rgba(0, 0, 0, 0.06),
+      0 12px 40px rgba(0, 0, 0, 0.06);
+  }
+
+  .apple-shadow-xl {
+    box-shadow:
+      0 0 0 0.5px rgba(0, 0, 0, 0.03),
+      0 4px 16px rgba(0, 0, 0, 0.08),
+      0 24px 64px rgba(0, 0, 0, 0.08);
+  }
+
+  /* macOS panel card */
+  .apple-card {
+    @apply bg-card rounded-2xl apple-shadow;
+    border: 0.5px solid hsl(var(--border));
+  }
+
+  .apple-card-interactive {
+    @apply apple-card transition-all duration-300 ease-out;
+  }
+
+  .apple-card-interactive:hover {
+    @apply apple-shadow-lg;
+    transform: translateY(-2px);
+  }
+
+  /* Soft glows */
+  .glow-primary {
+    box-shadow: 0 4px 24px hsla(211, 100%, 50%, 0.18);
+  }
+
+  .glow-success {
+    box-shadow: 0 4px 24px hsla(142, 71%, 45%, 0.18);
+  }
+
+  .glow-warning {
+    box-shadow: 0 4px 24px hsla(36, 100%, 50%, 0.18);
+  }
+
+  .glow-destructive {
+    box-shadow: 0 4px 24px hsla(4, 74%, 49%, 0.18);
+  }
+
+  /* Smooth scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+}

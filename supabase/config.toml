@@ -1,0 +1,7 @@
+project_id = "onhofhdkodkatefscpqy"
+
+[functions.wallet-auth]
+verify_jwt = false
+
+[functions.pinata-upload]
+verify_jwt = false
